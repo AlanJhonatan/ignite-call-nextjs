@@ -1,4 +1,4 @@
-import { globalCss } from "@zizao/react";
+import { globalCss } from '@zizao/react'
 
 export const globalStyles = globalCss({
   '*': {
