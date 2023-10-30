@@ -7,9 +7,9 @@ import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 
 export default function Home() {
   return (
-    <Container as={'h1'}>
+    <Container as="h1">
       <Hero>
-        <Heading as="h1" size={'4xl'}>
+        <Heading as="h1" size="4xl">
           Agendamento descomplicado
         </Heading>
         <Text size="xl">
