@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { api } from '@/lib/axios'
 
 const registerFormSchema = z.object({
   username: z
@@ -18,7 +19,7 @@ const registerFormSchema = z.object({
   name: z
     .string()
     .min(3, { message: 'O nome precisa ter pelo menos 3 letras.' })
-    .regex(/^([a-z\\]+)$/i, {
+    .regex(/^([a-z\s]+)$/i, {
       message: 'O nome deve conter apenas letras.',
     }),
 })
@@ -43,9 +44,17 @@ export default function Register() {
     }
   }, [router.query?.username, setValue])
 
-  function onRegisterSubmit(data: RegisterFormData) {
-    console.log('errors', errors)
-    console.log('data', data)
+  async function handleRegister(data: RegisterFormData) {
+    try {
+      const response = await api.post('/users', {
+        name: data.name,
+        username: data.username,
+      })
+
+      console.log(response.data)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -60,7 +69,7 @@ export default function Register() {
 
         <MultiStep size={4} currentStep={1} />
 
-        <Form as="form" onSubmit={handleSubmit(onRegisterSubmit)}>
+        <Form as="form" onSubmit={handleSubmit(handleRegister)}>
           <label>
             <Text size="sm">Nome de usuário</Text>
             <TextInput
