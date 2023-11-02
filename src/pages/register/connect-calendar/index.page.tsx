@@ -1,4 +1,3 @@
-'use client'
 import { Button, Heading, MultiStep, Text } from '@zizao/react'
 import { Container, Header } from '../styles'
 import { ArrowRight } from 'phosphor-react'
