@@ -13,6 +13,7 @@ export function CalendarStep() {
   return (
     <Container isTimePickerOpen={isDateSelected}>
       <Calendar />
+
       {isDateSelected && (
         <TimePicker>
           <TimePickerHeader>
