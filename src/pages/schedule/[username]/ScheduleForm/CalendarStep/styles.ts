@@ -1,4 +1,4 @@
-import { Box, styled } from '@zizao/react'
+import { Box, Text, styled } from '@zizao/react'
 
 export const Container = styled(Box, {
   margin: '$6 auto 0',
@@ -35,7 +35,7 @@ export const TimePicker = styled('div', {
   width: 280,
 })
 
-export const TimePickerHeader = styled('div', {
+export const TimePickerHeader = styled(Text, {
   fontWeight: '$medium',
 
   span: {
@@ -54,7 +54,7 @@ export const TimePickerList = styled('div', {
   },
 })
 
-export const TimePickerItem = styled('div', {
+export const TimePickerItem = styled('button', {
   border: 0,
   backgroundColor: '$gray600',
   padding: '$2 0',
